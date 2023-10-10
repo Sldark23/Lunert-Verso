@@ -1,5 +1,26 @@
 const fs = require('fs'); // Módulo 'fs' para manipulação de arquivos
 
+// Função para criar um novo planeta
+function criarNovoPlaneta() {
+    // Crie seu código para gerar um novo planeta aleatório aqui
+    const novoPlaneta = "Planeta " + (listaPlanetas.childElementCount + 1);
+
+    // Adicione o novo planeta à lista de planetas
+    const novoPlanetaElemento = document.createElement('li');
+    novoPlanetaElemento.textContent = novoPlaneta;
+    listaPlanetas.appendChild(novoPlanetaElemento);
+
+    // Atualize a data e hora do metaverso (avançando 12 horas)
+    atualizarHoraMetaverso();
+}
+
+// Função para avançar o tempo em 12 horas
+function atualizarHoraMetaverso() {
+    // Adicione aqui a lógica para atualizar a hora do metaverso
+    // Você pode usar uma variável global para rastrear a hora atual
+    // e incrementá-la em 12 horas a cada vez que um novo planeta é criado
+}
+
 // Captura o formulário de registro de personagens
 const formulario = document.getElementById('formulario');
 
@@ -31,4 +52,7 @@ formulario.addEventListener('submit', function(event) {
 
     // Escreve os personagens atualizados de volta no arquivo JSON
     fs.writeFileSync('banco.json', JSON.stringify(personagens, null, 2));
+
+    // Crie um novo planeta quando um personagem é registrado
+    criarNovoPlaneta();
 });
